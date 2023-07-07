@@ -45,3 +45,51 @@ export default function bfs(
     return null
 
 }
+
+
+function bfdwalk(V: number, adj: number[][]) {
+
+    const seen = new Array(V).fill(0)
+    seen[0] = 1;
+    const ans = []
+    const queue = []
+    queue.push(0)
+
+    while (ans.length) {
+        let node = queue.shift() as number
+        ans.push(node)
+
+        for (let i = 0; i < adj[node].length; ++i) {
+            let tempNode = adj[node][i];
+            if (!seen[tempNode]) {
+                seen[tempNode] = 1
+                queue.push(tempNode)
+            }
+
+        }
+    }
+
+}
+
+
+function dfsOnGraph(V: number, adj: [][]) {
+    const visted = new Array(V).fill(0)
+    let start = 0;
+    let path: number[] = []
+    dfs(start, adj, visted, path)
+
+}
+
+function dfs(node: number, adj: number[][], visted: number[], path: number[]) {
+
+    visted[node] = 1
+    path.push(node)
+
+    for (let i = 0; i < adj[node].length; ++i) {
+        let tempNode = adj[node][i]
+        if (!visted[tempNode]) {
+            dfs(tempNode, adj, visted, path)
+        }
+    }
+
+}
