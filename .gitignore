@@ -1,0 +1,10 @@
+node_modules
+./ligma.config.js
+dist
+stats.json
+scripts
+*.swp
+Tests
+./prettier.config.js
+
+./.prettier.config.js.swp
